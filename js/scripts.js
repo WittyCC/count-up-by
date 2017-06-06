@@ -1,11 +1,15 @@
 $(document).ready(function() {
-  $("#submit_button").click(function(event) {
-
-    var countUpBy = [];
-    //var userInput = $("input#" + item).val();
-    for (var currentNumber = "#number2"; currentNumber <= "#number1"; currentNumber += "#number2")
-      countUpBy.push(currentNumber);
-    $("#output").text(countUpBy);
-    //alert(countUpBy);
+  $("form#countUpBy").submit(function(event) {
+    event.preventDefault();
+    var countArray = [];
+    var userInput = parseInt($("input#number1").val());
+    console.log(userInput);
+    var countBy = parseInt($("input#number2").val());
+    console.log(countBy);
+    for (var i = countBy; i <= userInput; i+=countBy) {
+      console.log(i);
+      countArray.push(i);
+    }
+    $("#output").text(countArray);
   });
 });
